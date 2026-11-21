@@ -1,0 +1,140 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    --font-display: 'Chakra Petch', system-ui, sans-serif;
+    --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, monospace;
+  }
+
+  html,
+  body,
+  #root {
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    overflow: hidden;
+    font-family: var(--font-sans);
+    overscroll-behavior: none;
+    -webkit-tap-highlight-color: transparent;
+  }
+}
+
+.font-display {
+  font-family: var(--font-display);
+}
+
+.font-mono-num {
+  font-family: var(--font-mono);
+  font-variant-numeric: tabular-nums;
+}
+
+/* Subtle tactical scrollbar for upgrade lists */
+.tactical-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.tactical-scroll::-webkit-scrollbar-track {
+  background: rgba(15, 18, 24, 0.55);
+}
+
+.tactical-scroll::-webkit-scrollbar-thumb {
+  background: rgba(113, 113, 122, 0.45);
+  border-radius: 3px;
+}
+
+.tactical-scroll::-webkit-scrollbar-thumb:hover {
+  background: rgba(161, 161, 170, 0.65);
+}
+
+@keyframes forgeSlotFlash {
+  0% {
+    transform: scale(0.94);
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0.7);
+  }
+  50% {
+    transform: scale(1.06);
+    box-shadow: 0 0 10px 2px rgba(217, 119, 6, 0.35);
+  }
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(217, 119, 6, 0);
+  }
+}
+
+@keyframes forgeResultReveal {
+  0% {
+    opacity: 0;
+    transform: translateY(4px) scale(0.98);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes currencyPop {
+  0% {
+    transform: scale(1);
+  }
+  40% {
+    transform: scale(1.1);
+  }
+  100% {
+    transform: scale(1);
+  }
+}
+
+@keyframes upgradeBurst {
+  0% {
+    transform: scale(0.99);
+    filter: brightness(1.28);
+  }
+  100% {
+    transform: scale(1);
+    filter: brightness(1);
+  }
+}
+
+@keyframes modalEnter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px) scale(0.97);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+.animate-forge-slot {
+  animation: forgeSlotFlash 0.55s cubic-bezier(0.22, 1, 0.36, 1) forwards;
+}
+
+.animate-forge-result {
+  animation: forgeResultReveal 0.22s ease-out forwards;
+}
+
+.animate-currency-pop {
+  animation: currencyPop 0.22s cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.animate-upgrade-burst {
+  animation: upgradeBurst 0.24s ease-out;
+}
+
+.animate-modal-in {
+  animation: modalEnter 0.18s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-forge-slot,
+  .animate-forge-result,
+  .animate-currency-pop,
+  .animate-upgrade-burst,
+  .animate-modal-in {
+    animation: none !important;
+  }
+}
+
+

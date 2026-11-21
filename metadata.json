@@ -1,0 +1,6 @@
+{
+  "name": "Ironclad Vanguard",
+  "description": "2D top-down idle military tank battler with automatic wave combat, scrap economy, and tank stat upgrades.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
